@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation'
 import { IconBadge } from '@/components/icon-badge'
 import { LayoutDashboard } from 'lucide-react'
 import TitleForm from './_components/title-form'
+import DescriptionForm from './_components/description-form'
 
 const CourePage = async ({ params }: { params: { courseId: string } }) => {
     const { userId } = auth()
@@ -15,8 +16,9 @@ const CourePage = async ({ params }: { params: { courseId: string } }) => {
 
     const course = await db.course.findUnique({
         where: {
-            id: params.courseId
-        }
+            id: params.courseId,
+            userId
+        },
     })
 
     if (!course) {
@@ -61,6 +63,10 @@ const CourePage = async ({ params }: { params: { courseId: string } }) => {
                         <h2 className='text-xl'>Customize your course</h2>
                     </div>
                     <TitleForm initialData={course} courseId={course.id} />
+                    <DescriptionForm
+                        initialData={course}
+                        courseId={course.id}
+                    />
                 </div>
             </div>
 
