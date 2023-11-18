@@ -22,7 +22,7 @@ const FileUpload = ({
                 onChange(res?.[0].url)
             }}
             onUploadError={(error: Error) => {
-                toast.error("Something went wrong")
+                toast.error(`${error.message}`)
             }}
         />
     )
