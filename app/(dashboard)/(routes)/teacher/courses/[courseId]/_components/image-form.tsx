@@ -89,7 +89,7 @@ const ImageForm = ({
                         <ImageIcon className='h-10 w-10 text-slate-500' />
                     </div>
                 ) : (
-                    <div className='relative aspect-video mt-2 h-40 w-80'>
+                    <div className='relative aspect-video mt-2 '>
                         <Image
                             alt='Upload'
                             className='object-cover rounded-md'
