@@ -21,6 +21,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { Chapter, Course } from '@prisma/client';
+import ChaptersList from './chapters-list';
 
 
 interface ChaptersFormProps {
@@ -82,7 +83,7 @@ const ChaptersForm = ({
 
                             <>
                                 <PlusCircle className='h-4 w-4 mr-2' />
-                                Edit chapters
+                                Add a chapter
                             </>
                         )}
 
@@ -130,6 +131,11 @@ const ChaptersForm = ({
                     No Chapters
                     {!initialData.chapters.length && "No chapters"}
                     {/* TODO: ADD LIST OF CHAPTERS  */}
+                    <ChaptersList
+                        onEdit={() => { }}
+                        onReorder={() => { }}
+                        items={initialData.chapters || []}
+                    />
                 </div>
             )}
             {!isCreating && (
